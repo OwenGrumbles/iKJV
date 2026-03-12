@@ -1,0 +1,364 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA0001000000000000000001 /* iKJVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0001000000000000000001 /* iKJVApp.swift */; };
+		AA0001000000000000000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0001000000000000000002 /* ContentView.swift */; };
+		AA0001000000000000000003 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0001000000000000000003 /* HomeView.swift */; };
+		AA0001000000000000000004 /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0001000000000000000004 /* BookListView.swift */; };
+		AA0001000000000000000005 /* ChapterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0001000000000000000005 /* ChapterListView.swift */; };
+		AA0001000000000000000006 /* VerseReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0001000000000000000006 /* VerseReaderView.swift */; };
+		AA0001000000000000000007 /* ThemePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0001000000000000000007 /* ThemePickerView.swift */; };
+		AA0001000000000000000008 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0001000000000000000008 /* AppTheme.swift */; };
+		AA0001000000000000000009 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0001000000000000000009 /* ThemeManager.swift */; };
+		AA000100000000000000000A /* BibleModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB000100000000000000000A /* BibleModels.swift */; };
+		AA000100000000000000000B /* KJVBibleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB000100000000000000000B /* KJVBibleData.swift */; };
+		AA000100000000000000000C /* BibleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB000100000000000000000C /* BibleViewModel.swift */; };
+		AA000100000000000000000D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB000100000000000000000D /* Assets.xcassets */; };
+		AA000100000000000000000F /* BibleDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB000100000000000000000F /* BibleDataLoader.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BB0001000000000000000001 /* iKJVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iKJVApp.swift; sourceTree = "<group>"; };
+		BB0001000000000000000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BB0001000000000000000003 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		BB0001000000000000000004 /* BookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
+		BB0001000000000000000005 /* ChapterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterListView.swift; sourceTree = "<group>"; };
+		BB0001000000000000000006 /* VerseReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerseReaderView.swift; sourceTree = "<group>"; };
+		BB0001000000000000000007 /* ThemePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePickerView.swift; sourceTree = "<group>"; };
+		BB0001000000000000000008 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		BB0001000000000000000009 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		BB000100000000000000000A /* BibleModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleModels.swift; sourceTree = "<group>"; };
+		BB000100000000000000000B /* KJVBibleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KJVBibleData.swift; sourceTree = "<group>"; };
+		BB000100000000000000000C /* BibleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleViewModel.swift; sourceTree = "<group>"; };
+		BB000100000000000000000F /* BibleDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleDataLoader.swift; sourceTree = "<group>"; };
+		BB000100000000000000000D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BB000100000000000000000E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC000100000000000000000F /* iKJV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iKJV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DD0001000000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EE0001000000000000000001 /* iKJV */ = {
+			isa = PBXGroup;
+			children = (
+				BB0001000000000000000001 /* iKJVApp.swift */,
+				BB0001000000000000000002 /* ContentView.swift */,
+				BB0001000000000000000003 /* HomeView.swift */,
+				BB0001000000000000000004 /* BookListView.swift */,
+				BB0001000000000000000005 /* ChapterListView.swift */,
+				BB0001000000000000000006 /* VerseReaderView.swift */,
+				BB0001000000000000000007 /* ThemePickerView.swift */,
+				BB0001000000000000000008 /* AppTheme.swift */,
+				BB0001000000000000000009 /* ThemeManager.swift */,
+				BB000100000000000000000A /* BibleModels.swift */,
+				BB000100000000000000000B /* KJVBibleData.swift */,
+				BB000100000000000000000C /* BibleViewModel.swift */,
+				BB000100000000000000000F /* BibleDataLoader.swift */,
+				BB000100000000000000000D /* Assets.xcassets */,
+				BB000100000000000000000E /* Info.plist */,
+			);
+			path = iKJV;
+			sourceTree = "<group>";
+		};
+		EE0001000000000000000002 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CC000100000000000000000F /* iKJV.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EE0001000000000000000003 /* MainGroup */ = {
+			isa = PBXGroup;
+			children = (
+				EE0001000000000000000001 /* iKJV */,
+				EE0001000000000000000002 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FF0001000000000000000001 /* iKJV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF0001000000000000000003 /* Build configuration list for PBXNativeTarget "iKJV" */;
+			buildPhases = (
+				DD0001000000000000000002 /* Sources */,
+				DD0001000000000000000001 /* Frameworks */,
+				DD0001000000000000000003 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iKJV;
+			productName = iKJV;
+			productReference = CC000100000000000000000F /* iKJV.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FF0001000000000000000002 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					FF0001000000000000000001 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = FF0001000000000000000004 /* Build configuration list for PBXProject "iKJV" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EE0001000000000000000003 /* MainGroup */;
+			productRefGroup = EE0001000000000000000002 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FF0001000000000000000001 /* iKJV */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DD0001000000000000000003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA000100000000000000000D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DD0001000000000000000002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA0001000000000000000001 /* iKJVApp.swift in Sources */,
+				AA0001000000000000000002 /* ContentView.swift in Sources */,
+				AA0001000000000000000003 /* HomeView.swift in Sources */,
+				AA0001000000000000000004 /* BookListView.swift in Sources */,
+				AA0001000000000000000005 /* ChapterListView.swift in Sources */,
+				AA0001000000000000000006 /* VerseReaderView.swift in Sources */,
+				AA0001000000000000000007 /* ThemePickerView.swift in Sources */,
+				AA0001000000000000000008 /* AppTheme.swift in Sources */,
+				AA0001000000000000000009 /* ThemeManager.swift in Sources */,
+				AA000100000000000000000A /* BibleModels.swift in Sources */,
+				AA000100000000000000000B /* KJVBibleData.swift in Sources */,
+				AA000100000000000000000C /* BibleViewModel.swift in Sources */,
+				AA000100000000000000000F /* BibleDataLoader.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A1000100000000000000000D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = iKJV/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.owengrumbles.iKJV;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+			};
+			name = Debug;
+		};
+		A1000100000000000000000E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = iKJV/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.owengrumbles.iKJV;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+			};
+			name = Release;
+		};
+		A2000100000000000000000D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_CYCLE = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A2000100000000000000000E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_CYCLE = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FF0001000000000000000003 /* Build configuration list for PBXNativeTarget "iKJV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1000100000000000000000D /* Debug */,
+				A1000100000000000000000E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF0001000000000000000004 /* Build configuration list for PBXProject "iKJV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2000100000000000000000D /* Debug */,
+				A2000100000000000000000E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = FF0001000000000000000002 /* Project object */;
+}
