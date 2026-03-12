@@ -58,6 +58,12 @@ struct BibleVerse: Identifiable, Hashable {
     }
 }
 
+// MARK: - Navigation Value (iPhone NavigationStack)
+struct ChapterRef: Hashable {
+    let book: BookInfo
+    let chapter: Int
+}
+
 // MARK: - Reading State
 struct ReadingLocation: Codable, Equatable {
     var bookName: String
