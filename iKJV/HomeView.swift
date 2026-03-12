@@ -3,7 +3,9 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject var themeManager: ThemeManager
     @EnvironmentObject var viewModel: BibleViewModel
+    @EnvironmentObject var downloadManager: BibleDownloadManager
     @State private var showThemePicker = false
+    @State private var showDownloader = false
     @State private var animateIn = false
 
     var body: some View {
@@ -11,24 +13,13 @@ struct HomeView: View {
         let colors = theme.colors
 
         ZStack {
-            // Animated gradient background
-            backgroundGradient(colors: colors)
-                .ignoresSafeArea()
-
+            backgroundGradient(colors: colors).ignoresSafeArea()
             ScrollView {
-                VStack(spacing: 32) {
-                    // Header
-                    headerSection(theme: theme, colors: colors)
-
-                    // Testament Cards
+                VStack(spacing: 28) {
+                    headerSection(colors: colors)
                     testamentCards(theme: theme, colors: colors)
-
-                    // Continue Reading
-                    continueReadingCard(theme: theme, colors: colors)
-
-                    // Feature row
-                    featureRow(theme: theme, colors: colors)
-
+                    bibleStatusCard(theme: theme, colors: colors)
+                    statsRow(colors: colors)
                     Spacer(minLength: 40)
                 }
                 .padding(.horizontal, 20)
@@ -37,10 +28,9 @@ struct HomeView: View {
         }
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar { toolbarItems(theme: theme, colors: colors) }
-        .sheet(isPresented: $showThemePicker) {
-            ThemePickerView()
-        }
+        .toolbar { toolbarContent(theme: theme, colors: colors) }
+        .sheet(isPresented: $showThemePicker) { ThemePickerView() }
+        .sheet(isPresented: $showDownloader) { BibleDownloadView() }
         .onAppear {
             withAnimation(.spring(response: 0.6, dampingFraction: 0.8).delay(0.1)) {
                 animateIn = true
@@ -49,75 +39,53 @@ struct HomeView: View {
     }
 
     // MARK: - Background
-    @ViewBuilder
     private func backgroundGradient(colors: ThemeColors) -> some View {
         LinearGradient(
-            colors: [
-                colors.background,
-                colors.background.opacity(0.95),
-                colors.accent.opacity(0.08),
-                colors.background
-            ],
-            startPoint: .topLeading,
-            endPoint: .bottomTrailing
+            colors: [colors.background, colors.accent.opacity(0.07), colors.background],
+            startPoint: .topLeading, endPoint: .bottomTrailing
         )
     }
 
     // MARK: - Header
-    @ViewBuilder
-    private func headerSection(theme: AppTheme, colors: ThemeColors) -> some View {
-        VStack(spacing: 8) {
-            // Logo / Title
-            HStack(spacing: 12) {
-                Image(systemName: "book.pages.fill")
-                    .font(.system(size: 36, weight: .bold))
-                    .foregroundStyle(
-                        LinearGradient(
-                            colors: [colors.accent, colors.accentSecondary],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
-                    .shadow(color: colors.accent.opacity(0.5), radius: 8)
-
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("iKJV")
-                        .font(.system(size: 38, weight: .black, design: .rounded))
-                        .foregroundStyle(colors.primaryText)
-                    Text("King James Bible")
-                        .font(.system(size: 13, weight: .medium))
-                        .foregroundStyle(colors.secondaryText)
-                        .tracking(2)
-                        .textCase(.uppercase)
-                }
+    private func headerSection(colors: ThemeColors) -> some View {
+        HStack(spacing: 14) {
+            Image(systemName: "book.pages.fill")
+                .font(.system(size: 34, weight: .bold))
+                .foregroundStyle(LinearGradient(
+                    colors: [colors.accent, colors.accentSecondary],
+                    startPoint: .topLeading, endPoint: .bottomTrailing))
+                .shadow(color: colors.accent.opacity(0.4), radius: 8)
+            VStack(alignment: .leading, spacing: 2) {
+                Text("iKJV")
+                    .font(.system(size: 36, weight: .black, design: .rounded))
+                    .foregroundStyle(colors.primaryText)
+                Text("King James Bible")
+                    .font(.system(size: 12, weight: .medium))
+                    .foregroundStyle(colors.secondaryText)
+                    .tracking(2).textCase(.uppercase)
             }
+            Spacer()
         }
-        .padding(.vertical, 12)
         .opacity(animateIn ? 1 : 0)
-        .offset(y: animateIn ? 0 : -20)
+        .offset(y: animateIn ? 0 : -16)
     }
 
-    // MARK: - Testament Cards
-    @ViewBuilder
+    // MARK: - Testament Cards (NavigationLink(value:) for proper push nav)
     private func testamentCards(theme: AppTheme, colors: ThemeColors) -> some View {
-        VStack(spacing: 14) {
+        VStack(spacing: 12) {
             Text("TESTAMENTS")
-                .font(.system(size: 11, weight: .semibold))
-                .tracking(3)
+                .font(.system(size: 11, weight: .semibold)).tracking(3)
                 .foregroundStyle(colors.secondaryText)
                 .frame(maxWidth: .infinity, alignment: .leading)
-
-            HStack(spacing: 14) {
-                TestamentCard(
-                    testament: .old,
-                    theme: theme,
-                    colors: colors
-                )
-                TestamentCard(
-                    testament: .new,
-                    theme: theme,
-                    colors: colors
-                )
+            HStack(spacing: 12) {
+                NavigationLink(value: Testament.old) {
+                    TestamentCard(testament: .old, theme: theme, colors: colors)
+                }
+                .buttonStyle(.plain)
+                NavigationLink(value: Testament.new) {
+                    TestamentCard(testament: .new, theme: theme, colors: colors)
+                }
+                .buttonStyle(.plain)
             }
         }
         .opacity(animateIn ? 1 : 0)
@@ -125,50 +93,48 @@ struct HomeView: View {
         .animation(.spring(response: 0.6, dampingFraction: 0.8).delay(0.15), value: animateIn)
     }
 
-    // MARK: - Continue Reading
-    @ViewBuilder
-    private func continueReadingCard(theme: AppTheme, colors: ThemeColors) -> some View {
-        let loc = viewModel.lastLocation
-        NavigationLink {
-            BookListView()
-        } label: {
-            HStack(spacing: 16) {
+    // MARK: - Bible Status / Download Card
+    private func bibleStatusCard(theme: AppTheme, colors: ThemeColors) -> some View {
+        let hasFullBible = BibleLoader.jsonLoaded
+        return Button { if !hasFullBible { showDownloader = true } } label: {
+            HStack(spacing: 14) {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
-                        .fill(colors.accent.opacity(0.15))
-                        .frame(width: 48, height: 48)
-                    Image(systemName: "book.fill")
+                        .fill((hasFullBible ? colors.highlight : colors.accent).opacity(0.15))
+                        .frame(width: 46, height: 46)
+                    Image(systemName: hasFullBible ? "checkmark.circle.fill" : "arrow.down.circle.fill")
                         .font(.system(size: 22))
-                        .foregroundStyle(colors.accent)
+                        .foregroundStyle(hasFullBible ? colors.highlight : colors.accent)
                 }
-
                 VStack(alignment: .leading, spacing: 3) {
-                    Text("Continue Reading")
+                    Text(hasFullBible ? "Full Bible Loaded" : "Download Full Bible")
                         .font(.system(size: 15, weight: .semibold))
                         .foregroundStyle(colors.primaryText)
-                    Text("\(loc.bookName) \(loc.chapter)")
-                        .font(.system(size: 13))
+                    Text(hasFullBible
+                         ? "All 31,102 verses — Genesis to Revelation"
+                         : "Tap to download all 66 books in-app")
+                        .font(.system(size: 12))
                         .foregroundStyle(colors.secondaryText)
                 }
-
                 Spacer()
-
-                Image(systemName: "chevron.right")
-                    .font(.system(size: 13, weight: .semibold))
-                    .foregroundStyle(colors.accent)
+                if !hasFullBible {
+                    Image(systemName: "chevron.right")
+                        .font(.system(size: 13, weight: .semibold))
+                        .foregroundStyle(colors.accent)
+                }
             }
-            .padding(16)
+            .padding(14)
             .themedSurface(theme, cornerRadius: 14)
         }
+        .buttonStyle(.plain)
+        .disabled(hasFullBible)
         .opacity(animateIn ? 1 : 0)
-        .offset(y: animateIn ? 0 : 20)
         .animation(.spring(response: 0.6, dampingFraction: 0.8).delay(0.25), value: animateIn)
     }
 
-    // MARK: - Feature Row (stats)
-    @ViewBuilder
-    private func featureRow(theme: AppTheme, colors: ThemeColors) -> some View {
-        HStack(spacing: 12) {
+    // MARK: - Stats
+    private func statsRow(colors: ThemeColors) -> some View {
+        HStack(spacing: 10) {
             FeatureChip(icon: "text.book.closed.fill", label: "66 Books", colors: colors)
             FeatureChip(icon: "list.number", label: "1,189 Chapters", colors: colors)
             FeatureChip(icon: "paragraph", label: "31,102 Verses", colors: colors)
@@ -179,27 +145,17 @@ struct HomeView: View {
 
     // MARK: - Toolbar
     @ToolbarContentBuilder
-    private func toolbarItems(theme: AppTheme, colors: ThemeColors) -> some ToolbarContent {
+    private func toolbarContent(theme: AppTheme, colors: ThemeColors) -> some ToolbarContent {
         ToolbarItem(placement: .navigationBarTrailing) {
-            Button {
-                showThemePicker = true
-            } label: {
-                HStack(spacing: 6) {
-                    Image(systemName: theme.icon)
-                        .font(.system(size: 14))
-                    Text(theme.displayName)
-                        .font(.system(size: 13, weight: .medium))
+            Button { showThemePicker = true } label: {
+                HStack(spacing: 5) {
+                    Image(systemName: theme.icon).font(.system(size: 13))
+                    Text(theme.displayName).font(.system(size: 12, weight: .medium))
                 }
                 .foregroundStyle(colors.accent)
-                .padding(.horizontal, 12)
-                .padding(.vertical, 6)
-                .background(
-                    Capsule()
-                        .fill(colors.accent.opacity(0.12))
-                        .overlay(
-                            Capsule().strokeBorder(colors.accent.opacity(0.3), lineWidth: 0.5)
-                        )
-                )
+                .padding(.horizontal, 10).padding(.vertical, 5)
+                .background(Capsule().fill(colors.accent.opacity(0.12))
+                    .overlay(Capsule().strokeBorder(colors.accent.opacity(0.25), lineWidth: 0.5)))
             }
         }
     }
@@ -210,96 +166,51 @@ struct TestamentCard: View {
     let testament: Testament
     let theme: AppTheme
     let colors: ThemeColors
-    @EnvironmentObject var viewModel: BibleViewModel
     @State private var isPressed = false
 
     var body: some View {
-        NavigationLink {
-            BookListView(testament: testament)
-        } label: {
-            VStack(alignment: .leading, spacing: 16) {
-                // Icon row
-                HStack {
-                    ZStack {
-                        Circle()
-                            .fill(accentColor.opacity(0.18))
-                            .frame(width: 44, height: 44)
-                        Image(systemName: testament.icon)
-                            .font(.system(size: 20, weight: .semibold))
-                            .foregroundStyle(accentColor)
-                    }
-                    Spacer()
-                    Text(testament.shortName)
-                        .font(.system(size: 11, weight: .bold))
-                        .tracking(2)
-                        .foregroundStyle(accentColor.opacity(0.7))
+        VStack(alignment: .leading, spacing: 14) {
+            HStack {
+                ZStack {
+                    Circle().fill(accent.opacity(0.18)).frame(width: 42, height: 42)
+                    Image(systemName: testament.icon)
+                        .font(.system(size: 19, weight: .semibold)).foregroundStyle(accent)
                 }
-
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(testament.rawValue)
-                        .font(.system(size: 16, weight: .bold))
-                        .foregroundStyle(colors.primaryText)
-                        .lineLimit(2)
-                        .multilineTextAlignment(.leading)
-                    Text("\(testament.bookCount) Books")
-                        .font(.system(size: 13))
-                        .foregroundStyle(colors.secondaryText)
-                }
+                Spacer()
+                Text(testament.shortName)
+                    .font(.system(size: 10, weight: .bold)).tracking(2)
+                    .foregroundStyle(accent.opacity(0.6))
             }
-            .padding(18)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .themedSurface(theme, cornerRadius: 18)
-            .overlay(
-                RoundedRectangle(cornerRadius: 18)
-                    .strokeBorder(
-                        LinearGradient(
-                            colors: [accentColor.opacity(0.4), .clear],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        ),
-                        lineWidth: 1
-                    )
-            )
-            .scaleEffect(isPressed ? 0.96 : 1.0)
+            VStack(alignment: .leading, spacing: 3) {
+                Text(testament.rawValue)
+                    .font(.system(size: 15, weight: .bold)).foregroundStyle(colors.primaryText)
+                    .multilineTextAlignment(.leading)
+                Text("\(testament.bookCount) Books")
+                    .font(.system(size: 12)).foregroundStyle(colors.secondaryText)
+            }
         }
-        .buttonStyle(.plain)
-        .simultaneousGesture(
-            DragGesture(minimumDistance: 0)
-                .onChanged { _ in
-                    withAnimation(.easeInOut(duration: 0.1)) { isPressed = true }
-                }
-                .onEnded { _ in
-                    withAnimation(.spring(response: 0.3)) { isPressed = false }
-                }
-        )
+        .padding(16)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .themedSurface(theme, cornerRadius: 18)
+        .overlay(RoundedRectangle(cornerRadius: 18)
+            .strokeBorder(LinearGradient(colors: [accent.opacity(0.4), .clear],
+                                         startPoint: .topLeading, endPoint: .bottomTrailing), lineWidth: 1))
+        .scaleEffect(isPressed ? 0.95 : 1.0)
+        .animation(.spring(response: 0.2), value: isPressed)
     }
-
-    private var accentColor: Color {
-        testament == .old ? colors.accent : colors.accentSecondary
-    }
+    private var accent: Color { testament == .old ? colors.accent : colors.accentSecondary }
 }
 
 // MARK: - Feature Chip
 struct FeatureChip: View {
-    let icon: String
-    let label: String
-    let colors: ThemeColors
-
+    let icon: String; let label: String; let colors: ThemeColors
     var body: some View {
-        HStack(spacing: 5) {
-            Image(systemName: icon)
-                .font(.system(size: 11))
-                .foregroundStyle(colors.accent)
-            Text(label)
-                .font(.system(size: 11, weight: .medium))
-                .foregroundStyle(colors.secondaryText)
+        HStack(spacing: 4) {
+            Image(systemName: icon).font(.system(size: 10)).foregroundStyle(colors.accent)
+            Text(label).font(.system(size: 10, weight: .medium)).foregroundStyle(colors.secondaryText)
         }
-        .padding(.horizontal, 10)
-        .padding(.vertical, 6)
-        .background(
-            Capsule()
-                .fill(colors.surface.opacity(0.6))
-                .overlay(Capsule().strokeBorder(colors.borderColor.opacity(0.5), lineWidth: 0.5))
-        )
+        .padding(.horizontal, 9).padding(.vertical, 5)
+        .background(Capsule().fill(colors.surface.opacity(0.5))
+            .overlay(Capsule().strokeBorder(colors.borderColor.opacity(0.4), lineWidth: 0.5)))
     }
 }

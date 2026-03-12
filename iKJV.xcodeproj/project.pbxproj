@@ -21,6 +21,9 @@
 		AA000100000000000000000C /* BibleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB000100000000000000000C /* BibleViewModel.swift */; };
 		AA000100000000000000000D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB000100000000000000000D /* Assets.xcassets */; };
 		AA000100000000000000000F /* BibleDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB000100000000000000000F /* BibleDataLoader.swift */; };
+		AA0001000000000000000010 /* BibleDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0001000000000000000010 /* BibleDownloadManager.swift */; };
+		AA0001000000000000000011 /* BibleDownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0001000000000000000011 /* BibleDownloadView.swift */; };
+		AA0001000000000000000012 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0001000000000000000012 /* OnboardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,9 @@
 		BB000100000000000000000B /* KJVBibleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KJVBibleData.swift; sourceTree = "<group>"; };
 		BB000100000000000000000C /* BibleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleViewModel.swift; sourceTree = "<group>"; };
 		BB000100000000000000000F /* BibleDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleDataLoader.swift; sourceTree = "<group>"; };
+		BB0001000000000000000010 /* BibleDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleDownloadManager.swift; sourceTree = "<group>"; };
+		BB0001000000000000000011 /* BibleDownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleDownloadView.swift; sourceTree = "<group>"; };
+		BB0001000000000000000012 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		BB000100000000000000000D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB000100000000000000000E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC000100000000000000000F /* iKJV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iKJV.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +75,9 @@
 				BB000100000000000000000B /* KJVBibleData.swift */,
 				BB000100000000000000000C /* BibleViewModel.swift */,
 				BB000100000000000000000F /* BibleDataLoader.swift */,
+				BB0001000000000000000010 /* BibleDownloadManager.swift */,
+				BB0001000000000000000011 /* BibleDownloadView.swift */,
+				BB0001000000000000000012 /* OnboardingView.swift */,
 				BB000100000000000000000D /* Assets.xcassets */,
 				BB000100000000000000000E /* Info.plist */,
 			);
@@ -173,6 +182,9 @@
 				AA000100000000000000000B /* KJVBibleData.swift in Sources */,
 				AA000100000000000000000C /* BibleViewModel.swift in Sources */,
 				AA000100000000000000000F /* BibleDataLoader.swift in Sources */,
+				AA0001000000000000000010 /* BibleDownloadManager.swift in Sources */,
+				AA0001000000000000000011 /* BibleDownloadView.swift in Sources */,
+				AA0001000000000000000012 /* OnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
