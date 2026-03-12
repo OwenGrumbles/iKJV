@@ -140,8 +140,10 @@ struct ThemedGlassBackground: ViewModifier {
 
     func body(content: Content) -> some View {
         if #available(iOS 26.0, *) {
+            // Liquid Glass — tinted with the theme accent
             content
-                .glassEffect(.regular.tint(theme.colors.glassAccent), in: .rect(cornerRadius: cornerRadius))
+                .tint(theme.colors.glassAccent)
+                .glassEffect(in: RoundedRectangle(cornerRadius: cornerRadius))
         } else {
             content
                 .background(
