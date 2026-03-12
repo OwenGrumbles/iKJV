@@ -9,8 +9,8 @@ let package = Package(
         .iOS("17.0")
     ],
     targets: [
-        .executableTarget(
-            name: "AppModule",
+        .target(
+            name: "iKJV",
             path: "iKJV",
             exclude: [
                 "Info.plist"
