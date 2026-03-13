@@ -10,7 +10,7 @@ let package = Package(
         .iOS("17.0")
     ],
     targets: [
-        .target(
+        .executableTarget(
             name: "iKJV",
             path: "Sources",
             exclude: [
