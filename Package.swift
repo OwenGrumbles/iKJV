@@ -12,10 +12,9 @@ let package = Package(
     targets: [
         .target(
             name: "iKJV",
-            path: "iKJV.swiftpm",
+            path: "iKJV.swiftpm/Sources",
             exclude: [
-                "Info.plist",
-                "Package.swift"
+                "Info.plist"
             ],
             resources: [
                 .process("Assets.xcassets")
