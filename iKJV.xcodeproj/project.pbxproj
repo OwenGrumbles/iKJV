@@ -44,7 +44,7 @@
 		BB0001000000000000000011 /* BibleDownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleDownloadView.swift; sourceTree = "<group>"; };
 		BB0001000000000000000012 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		BB000100000000000000000D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BB000100000000000000000E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB000100000000000000000E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		CC000100000000000000000F /* iKJV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iKJV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -81,7 +81,7 @@
 				BB000100000000000000000D /* Assets.xcassets */,
 				BB000100000000000000000E /* Info.plist */,
 			);
-			path = iKJV.swiftpm/Sources;
+			path = iKJV.swiftpm;
 			sourceTree = SOURCE_ROOT;
 		};
 		EE0001000000000000000002 /* Products */ = {
@@ -201,7 +201,7 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = iKJV.swiftpm/Sources/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.owengrumbles.iKJV;
@@ -223,7 +223,7 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = iKJV.swiftpm/Sources/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.owengrumbles.iKJV;
