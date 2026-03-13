@@ -81,7 +81,7 @@
 				BB000100000000000000000D /* Assets.xcassets */,
 				BB000100000000000000000E /* Info.plist */,
 			);
-			path = iKJV;
+			path = iKJV.swiftpm;
 			sourceTree = "<group>";
 		};
 		EE0001000000000000000002 /* Products */ = {
@@ -201,7 +201,7 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = iKJV/Info.plist;
+				INFOPLIST_FILE = iKJV.swiftpm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.owengrumbles.iKJV;
@@ -223,7 +223,7 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = iKJV/Info.plist;
+				INFOPLIST_FILE = iKJV.swiftpm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.owengrumbles.iKJV;
